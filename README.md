@@ -1,4 +1,4 @@
-# CursorPops
+# Cursor Pops
 
 A lightweight utility that displays customizable pop-up text near your cursor. Perfect for visual feedback, notifications, or creating engaging UI effects. Currently implemented for Windows, with potential for other platforms in the future.
 
@@ -14,37 +14,10 @@ A lightweight utility that displays customizable pop-up text near your cursor. P
 - Easy integration with other applications through simple command-line interface
 - Minimal dependencies for straightforward embedding
 
-## Integration
-
-CursorPops is designed to be easily integrated into other applications:
-
-```cpp
-// C++ example using CreateProcess
-STARTUPINFOW si = { sizeof(si) };
-PROCESS_INFORMATION pi;
-CreateProcessW(NULL, L"CursorPops.exe \"Your Text\" -c #FF0000", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
-
-// Remember to close handles if you need to track the process
-CloseHandle(pi.hProcess);
-CloseHandle(pi.hThread);
-```
-
-```python
-# Python example
-import subprocess
-subprocess.Popen(['CursorPops.exe', 'Your Text', '-c', '#FF0000'])
-```
-
-```javascript
-// Node.js example
-const { spawn } = require('child_process');
-spawn('CursorPops.exe', ['Your Text', '-c', '#FF0000']);
-```
-
 ## Usage
 
 ```bash
-CursorPops.exe [options] <text>
+cursor-pops [options] <text>
 ```
 
 ### Options
@@ -72,16 +45,16 @@ Note: `#FF00FF` (magenta) will be adjusted slightly as it's used for transparenc
 
 ```bash
 # Simple text display
-CursorPops.exe "Hello World"
+cursor-pops "Hello World"
 
 # Rising text with blue color
-CursorPops.exe -v 20 -c "#0000FF" "Rising"
+cursor-pops -v 20 -c "#0000FF" "Rising"
 
 # Moving text with custom duration and fade
-CursorPops.exe -v 50,0 -d 0.5 -e 2 "Moving"
+cursor-pops -v 50,0 -d 0.5 -e 2 "Moving"
 
 # Floating text with outline
-CursorPops.exe -t "Float" -v 0,-2 -o "#000000" -c "#FFFFFF"
+cursor-pops -t "Float" -v 0,-2 -o "#000000" -c "#FFFFFF"
 ```
 
 ## Building
@@ -90,6 +63,33 @@ The project requires:
 - Windows OS
 - C++ 17 compiler
 - Windows SDK
+
+## Integration
+
+Cursor Pops is designed to be easily integrated into other applications:
+
+```cpp
+// C++ example using CreateProcess
+STARTUPINFOW si = { sizeof(si) };
+PROCESS_INFORMATION pi;
+CreateProcessW(NULL, L"cursor-pops \"Your Text\" -c #FF0000", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+
+// Remember to close handles if you need to track the process
+CloseHandle(pi.hProcess);
+CloseHandle(pi.hThread);
+```
+
+```python
+# Python example
+import subprocess
+subprocess.Popen(['cursor-pops', 'Your Text', '-c', '#FF0000'])
+```
+
+```javascript
+// Node.js example
+const { spawn } = require('child_process');
+spawn('cursor-pops', ['Your Text', '-c', '#FF0000']);
+```
 
 ## Technical Details
 
